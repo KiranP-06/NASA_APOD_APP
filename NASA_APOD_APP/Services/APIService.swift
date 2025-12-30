@@ -18,7 +18,7 @@ enum APIError: Error {
 class APIService {
 
     private let baseURL = "https://api.nasa.gov/planetary/apod"
-    private let apiKey = "V8DOG1ThhVYFY8cWSmW0wBs2WNkV02h4jdJX2ILf"
+    private let apiKey = "DEMO_KEY"
 
     func fetchAPOD(date: Date? = nil) async throws -> APODItem {
         var components = URLComponents(string: baseURL)
