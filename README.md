@@ -24,8 +24,8 @@ The app uses a clean MVVM architecture to separate logic from UI.
 - **Unit Tests:** Located in the `NASA_APOD_APPTests` target. I used a `MockAPIService` to simulate network success and failure scenarios without hitting the live API, ensuring reliable and fast tests.
 
 ## 🔑 Configuration
-The app is currently configured to use `DEMO_KEY` for easy testing by reviewers. 
-*Note: In a production environment, I would secure the API Key using a local `Secrets.swift` file (git-ignored) and inject it via CI/CD environment variables.*
+I developed and tested the app using my personal NASA API key to ensure stability. 
+However, for this submission, I have reverted the configuration to `DEMO_KEY` so you can run the project immediately without needing to set up environment variables or secret files.
 
 ## 🧪 How to Run
 ### Run the App
