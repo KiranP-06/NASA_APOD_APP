@@ -16,7 +16,7 @@ A native iOS application that displays NASA's Astronomy Picture of the Day (APOD
 - **Networking:** Swift Concurrency (Async/Await)
 
 ## 🔑 Configuration
-The app is currently configured to use `DEMO_KEY` for easy testing. 
+The app is currently configured to use `OWN API KEY or DEMO_KEY` for easy testing. 
 *Note: In a production environment, I would secure the API Key using a local `Secrets.swift` file (git-ignored) and inject it via CI/CD environment variables.*
 
 ## 🧪 How to Run
