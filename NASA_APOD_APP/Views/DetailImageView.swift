@@ -13,7 +13,7 @@ struct DetailImageView: View {
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            // Basic Zoomable ScrollView
+            
             GeometryReader { proxy in
                 ScrollView([.horizontal, .vertical]) {
                     AsyncImage(url: imageURL) { image in
@@ -27,7 +27,7 @@ struct DetailImageView: View {
                 }
             }
             
-            // Close Button
+            
             Button(action: { dismiss() }) {
                 Image(systemName: "xmark.circle.fill")
                     .font(.largeTitle)
