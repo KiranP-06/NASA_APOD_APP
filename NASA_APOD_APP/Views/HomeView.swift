@@ -95,12 +95,16 @@ struct HomeView: View {
                             .padding(.horizontal)
                         }
                     }
-                    // Full Screen Detail View
+                    
+                    
                     .fullScreenCover(isPresented: $showingDetail) {
-                        if let hdURL = item.hdurl, let url = URL(string: hdURL) {
-                            DetailImageView(imageURL: url)
-                        } else if let url = URL(string: item.url) {
-                            DetailImageView(imageURL: url)
+                        if let item = viewModel.apodItem {
+                            
+                            let url = URL(string: item.hdurl ?? item.url)
+                            
+                            if let url = url {
+                                DetailImageView(imageURL: url, title: item.title, explanation: item.explanation)
+                            }
                         }
                     }
                 }

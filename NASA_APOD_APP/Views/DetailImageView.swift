@@ -9,32 +9,63 @@ import SwiftUI
 
 struct DetailImageView: View {
     let imageURL: URL
+    let title: String
+    let explanation: String
+    
     @Environment(\.dismiss) var dismiss
+    @State private var showInfo = false
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            // Basic Zoomable ScrollView
-            GeometryReader { proxy in
-                ScrollView([.horizontal, .vertical]) {
-                    AsyncImage(url: imageURL) { image in
+            Color.black.ignoresSafeArea()
+            
+            // 1. Zoomable Image
+            ZoomableScrollView {
+                AsyncImage(url: imageURL) { phase in
+                    switch phase {
+                    case .success(let image):
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: proxy.size.width, height: proxy.size.height)
-                    } placeholder: {
-                        ProgressView()
+                    default:
+                        ProgressView().foregroundColor(.white)
                     }
                 }
             }
             
-            // Close Button
+          
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: { showInfo.toggle() }) {
+                        Image(systemName: "info.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                }
+            }
+            .padding()
+            
+          
             Button(action: { dismiss() }) {
                 Image(systemName: "xmark.circle.fill")
                     .font(.largeTitle)
-                    .foregroundColor(.white)
+                    .foregroundColor(.white.opacity(0.7))
                     .padding()
             }
         }
-        .background(Color.black)
+   
+        .sheet(isPresented: $showInfo) {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(title).font(.title).bold()
+                    Text(explanation).font(.body)
+                }
+                .padding()
+            }
+            .presentationDetents([.medium, .fraction(0.3)])
+        }
     }
 }
