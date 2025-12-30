@@ -4,7 +4,7 @@ A native iOS application that displays NASA's Astronomy Picture of the Day (APOD
 
 ## 🚀 Features
 - **Daily Content:** Fetches the latest astronomy picture and explanation.
-- **Timezone Handling:** Automatically defaults to "Yesterday" if NASA hasn't updated the API for the current US timezone yet (prevents 404 errors for international users).
+- **Timezone Handling:** Automatically defaults to "Day Before Yesterday" if NASA hasn't updated the API for the current US timezone yet (prevents 404 errors for international users).
 - **Detail View:** Full-screen image viewing with **Pinch-to-Zoom** capability.
 - **Metadata Overlay:** Tap the info button to read the full explanation.
 - **Native UI:** Uses native DatePicker and async/await concurrency.
