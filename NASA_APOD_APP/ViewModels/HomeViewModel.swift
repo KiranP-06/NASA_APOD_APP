@@ -14,7 +14,8 @@ class HomeViewModel: ObservableObject {
     @Published var apodItem: APODItem?
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
-    @Published var selectedDate: Date = Date()
+    // Default to Yesterday (-2 day) to avoid Timezone errors
+    @Published var selectedDate: Date = Calendar.current.date(byAdding: .day, value: -2, to: Date())!
     
     private let service = APIService()
     
